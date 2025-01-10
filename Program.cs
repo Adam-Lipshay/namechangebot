@@ -38,7 +38,7 @@ namespace NameChangeBot {
             client.GuildMemberUpdated += OnGuildMemberUpdated;
             client.MessageReceived += OnMessageReceived;
             Console.WriteLine("Bot is connected!");
-            guild = client.GetGuild(1326847069264150561);
+            guild = client.GetGuild(1127406800296226939);
             channel = guild.TextChannels.FirstOrDefault(c => c.Name == "nickname-history");
             await CollectMembers();
             return Task.CompletedTask;
@@ -134,8 +134,8 @@ namespace NameChangeBot {
 
         private static async Task<ulong?> GetUserId(string name, bool nickname) {
             var user = nickname
-                ? guild.Users.FirstOrDefault(c => c.Nickname == name) // Search by Nickname
-                : guild.Users.FirstOrDefault(c => c.Username == name); // Search by Username
+                ? guild.Users.FirstOrDefault(c => c.Nickname == name)
+                : guild.Users.FirstOrDefault(c => c.Username == name);
 
             return user?.Id;
         }
