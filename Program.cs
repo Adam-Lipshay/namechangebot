@@ -122,7 +122,6 @@ namespace NameChangeBot {
         private static async Task CollectMembers()
         {
             foreach(SocketGuildUser user in guild.Users) {
-                Console.WriteLine(user.Username);
                 if(!iceDwellers.ContainsKey(user.Id)) {
                     var newNamesList = new List<string>
                     {
