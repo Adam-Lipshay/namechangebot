@@ -40,6 +40,7 @@ namespace NameChangeBot {
             Console.WriteLine("Bot is connected!");
             guild = client.GetGuild(1127406800296226939);
             channel = guild.TextChannels.FirstOrDefault(c => c.Name == "nickname-history");
+            await guild.DownloadUsersAsync();
             await CollectMembers();
             return Task.CompletedTask;
         }
@@ -121,6 +122,7 @@ namespace NameChangeBot {
         private static async Task CollectMembers()
         {
             foreach(SocketGuildUser user in guild.Users) {
+                Console.WriteLine(user.Username);
                 if(!iceDwellers.ContainsKey(user.Id)) {
                     var newNamesList = new List<string>
                     {
